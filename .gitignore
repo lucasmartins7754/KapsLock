@@ -1,0 +1,143 @@
+package trabalhofac;
+
+import java.util.Arrays;
+import javax.swing.JOptionPane;
+
+public class Trabalhofac {
+    
+    
+    public static void main(String[] args) {
+     
+            int [][]vetor = new int[3][5];
+            String B[][] = {{"1001","1002","1003","1004","1005"}, {"2001","2002","2003","2004","2005"}, {"3001","3002","3003","3004","3005"}};
+            int l, c;
+            int opcase;
+            int somacaixas = 0;
+            do{ opcase = Integer.parseInt(JOptionPane.showInputDialog("1 - Olá, insira a quantidade de caixas de cerveja para o compartimento:"
+                    + "\n2 - Qual é o número total de caixas de cerveja no armazém?"
+                    + "\n3 - Qual número ideal de caixas de cerveja que deveriam estar alocados em cada compartimento?"
+                    + "\n4 - Qual é o número do compartimento que MAIS tem caixas de cerveja?"
+                    + "\n5 - Qual é o número do compartimento que MENOS tem caixas de cerveja?"
+                    + "\n6 - Insira o numero de algum compartimento e saberá quantas caixas de cerveja ele possui."
+                    + "\n7 - Mostre-me todas as quantidades de caixas de cerveja ordenadas em apenas 1 mensagem."
+                    + "\n8 - Mostre-me a porcentagem do número de compartimentos em relação ao total que possuem mais caixas de cerveja que a média do armazém."
+                    + "\n9 - Mostre-me o número do compartimento que MENOS tem caixas de cerveja na Prateleira 2."
+                    + "\n10 - Mostre-me o número do compartimento que MAIS tem caixas de cerveja na Prateleira 3."));
+                       
+/* 1) Solicite ao usuário a quantidade de caixas de cerveja em cada compartimento, a mensagem que aparece para o usuário deve seguir EXATAMENTE o seguinte modelo:*/
+
+            switch(opcase){                 
+            case 1:
+                for(l=0; l<1; l++){
+                for (c=0; c<5; c++){
+                    vetor[l][c] = Integer.parseInt(JOptionPane.showInputDialog("Olá, insira a quantidade de caixas de cerveja para o compartimento: 1001 ao 1005"));
+                    }
+                }
+                for(l=1; l<2; l++){
+                for (c=0; c<5; c++){
+                    vetor[l][c] = Integer.parseInt(JOptionPane.showInputDialog("Olá, insira a quantidade de caixas de cerveja para o compartimento: 2001 ao 2005"));
+                    }
+                }
+                for(l=2; l<3; l++){
+                for (c=0; c<5; c++){
+                    vetor[l][c] = Integer.parseInt(JOptionPane.showInputDialog("Olá, insira a quantidade de caixas de cerveja para o compartimento: 3001 ao 3003"));
+                    }
+                }
+            break;
+            
+/* 2) Qual é o número total de caixas de cerveja no armazém ?*/
+
+            case 2:
+                for(l=0; l<3; l++){
+                    for (c=0; c<3; c++){
+                    somacaixas = somacaixas + vetor[l][c];
+                    }
+                }
+                    JOptionPane.showMessageDialog(null, "O numero de caixas no armazem é: " +somacaixas);
+            break;
+            
+/* 3) O armazém está desorganizado, calcule o número ideal de caixas de cerveja que deveriam estar alocados em cada compartimento. (Calcule a média).*/
+
+            case 3:
+                int mediacaixas = 0;
+                mediacaixas = somacaixas / 15;
+                    JOptionPane.showMessageDialog(null, "O numero de caixas ideal para cada compartimento é: " +mediacaixas);
+            break;
+                
+/* 4) Qual é o número do compartimento que MAIS tem caixas de cerveja ?*/
+
+            case 4:   
+                int maiscx = 0;
+                for(l=0; l<3; l++){
+                   for (c=0; c<3; c++){
+                      if (vetor[l][c] > maiscx){
+                        maiscx = vetor[l][c];
+                      }
+                   }
+                }
+                JOptionPane.showMessageDialog(null, "O compartimento é: "+ maiscx);
+            break;
+                
+/*5) Qual é o número do compartimento que MENOS tem caixas de cerveja ?*/
+                
+            case 5:
+                int menoscx = 9999;
+                for(l=0; l<3; l++){
+                   for (c=0; c<3; c++){
+                      if (vetor[l][c] < menoscx){
+                        menoscx = vetor[l][c];
+                        
+                      }
+                   }
+                }
+                JOptionPane.showMessageDialog(null, "O compartimento é: " + menoscx);
+            break;
+                
+/*6) Peça que o usuário informe o número de um dos compartimentos(exemplo 1003), diga quantas caixas de cerveja tem neste compartimento. */
+            
+            case 6:
+                
+            break;
+            
+/*7) Mostre todas as quantidades de caixas de cerveja ordenadas em apenas 1 mensagem. Para isso coloque todas as quantidades em um vetor e ordene com o BubbleSort.*/
+
+            case 7:
+            for(int i=0;i<vetor.length;i++){
+                for(int j=0;j<vetor[i].length;j++){
+                    if(vetor[i][j]>vetor[i+1][j]){
+                        int temp=vetor[i][j];
+                            vetor[i][j]=vetor[i+1][j];
+                                vetor[i+1][j]=temp;
+                                    JOptionPane.showMessageDialog(null, "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" + temp);
+                        }     
+                    }
+                }       
+                
+
+            break;
+            
+/*8) Mostre a porcentagem do número de compartimentos em relação ao total (15 compartimentos), que possuem mais caixas de cerveja que a média do armazém.*/
+            
+            case 8:
+                
+            break;
+            
+/*9) Mostre o número do compartimento que MENOS tem caixas de cerveja na Prateleira 2*/            
+            case 9:
+                
+            break;
+            
+/*10) Mostre o número do compartimento que MAIS tem caixas de cerveja na Prateleira 3*/
+            
+            case 10:
+                
+            break;
+            
+                
+            }
+        }while(opcase != 0);
+    }
+}
+   
+
+    
